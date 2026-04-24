@@ -1,0 +1,19 @@
+# Core physics simulation
+andes>=2.0.0
+numpy>=1.24
+scipy>=1.10
+pandas>=2.0
+
+# LLM SDKs (multi-vendor)
+openai>=1.40
+anthropic>=0.30
+
+# Optional: HTTP / env utilities
+python-dotenv>=1.0
+
+# Analysis and plotting
+matplotlib>=3.7
+seaborn>=0.13  # optional, used for some analysis scripts
+
+# Testing / dev
+pytest>=7.4

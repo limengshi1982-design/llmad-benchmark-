@@ -1,0 +1,7 @@
+run_id,profile,model,case,seed,temperature,horizon_s,stopped_reason,failed,failure_reason,t_fail,omega_deviation_max,v_min,delta_drift_max,delta_spread_max,n_tool_calls,prompt_tokens,completion_tokens,wall_time_s,error
+FAIL__minimax-m2__kundur__s0,minimax-m2,,kundur,0,0.0,10.0,exception,,,,,,,,0,0,0,0.0,UnicodeEncodeError: 'gbk' codec can't encode character '\U0001f6a8' in position 17: illegal multibyte sequence
+FAIL__minimax-m2__kundur__s1,minimax-m2,,kundur,1,0.0,10.0,exception,,,,,,,,0,0,0,0.0,UnicodeEncodeError: 'gbk' codec can't encode character '\u2705' in position 53: illegal multibyte sequence
+FAIL__minimax-m2__kundur__s2,minimax-m2,,kundur,2,0.0,10.0,exception,,,,,,,,0,0,0,0.0,UnicodeEncodeError: 'gbk' codec can't encode character '\u226b' in position 160: illegal multibyte sequence
+20260419T031017Z__minimax-m2__ieee39__s0,minimax-m2,MiniMax M2.7,ieee39,0,0.0,10.0,horizon_reached,True,voltage,0.5001,0.00545185828854966,0.004948070020560988,1.4341982801636461,1.6708314659315868,7,8445,1296,44.96410640000022,
+FAIL__minimax-m2__ieee39__s1,minimax-m2,,ieee39,1,0.0,10.0,exception,,,,,,,,0,0,0,0.0,UnicodeEncodeError: 'gbk' codec can't encode character '\u26a0' in position 384: illegal multibyte sequence
+20260419T031209Z__minimax-m2__ieee39__s2,minimax-m2,MiniMax M2.7,ieee39,2,0.0,10.0,horizon_reached,True,voltage,0.5001,0.00545185828854966,0.004948070020560988,1.4341982801636461,1.6708314659315868,7,5576,1193,37.28914169999962,

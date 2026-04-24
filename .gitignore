@@ -1,0 +1,36 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+*.log
+results/
+output/
+*.npz
+*.csv.bak
+.ipynb_checkpoints/
+
+# Per-run state snapshots are large (~41 MB aggregate JSON); release separately.
+experiments/runs_e2e/
+
+# LaTeX build artefacts (keep source .tex + .bib + figures only)
+manuscript/*.aux
+manuscript/*.out
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.toc
+manuscript/*.lof
+manuscript/*.lot
+manuscript/*.synctex.gz
+manuscript/*.fls
+manuscript/*.fdb_latexmk
+
+# IDE + OS cruft
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Scratch files
+tmp_*.py
+scratch_*
+*.bak

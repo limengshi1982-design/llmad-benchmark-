@@ -1,0 +1,173 @@
+{
+  "_schema_version": 2,
+  "_doc": "Model profiles for LLMAD. Each profile declares 'format' (either 'openai' or 'anthropic') which selects the SDK + wire protocol. Most providers expose an OpenAI-compatible endpoint so 'openai' is the default. MiniMax's /anthropic endpoint requires format='anthropic'.",
+
+  "default_profile": "claude-opus",
+
+  "generation": {
+    "temperature": 0.2,
+    "max_tokens": 2048,
+    "timeout_s": 120,
+    "max_retries": 3
+  },
+
+  "profiles": {
+
+    "claude-opus": {
+      "provider": "anthropic",
+      "model": "claude-opus-4-6",
+      "base_url": "https://api.anthropic.com/v1/",
+      "api_key_env": "ANTHROPIC_API_KEY",
+      "notes": "Anthropic exposes an OpenAI-compatible endpoint. Use the OpenAI SDK with this base_url + Anthropic key."
+    },
+
+    "claude-sonnet": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6",
+      "base_url": "https://api.anthropic.com/v1/",
+      "api_key_env": "ANTHROPIC_API_KEY"
+    },
+
+    "gpt-4o": {
+      "provider": "openai",
+      "model": "gpt-4o",
+      "base_url": "https://api.openai.com/v1",
+      "api_key_env": "OPENAI_API_KEY"
+    },
+
+    "gpt-4o-mini": {
+      "provider": "openai",
+      "model": "gpt-4o-mini",
+      "base_url": "https://api.openai.com/v1",
+      "api_key_env": "OPENAI_API_KEY"
+    },
+
+    "deepseek-chat": {
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key_env": "DEEPSEEK_API_KEY"
+    },
+
+    "deepseek-reasoner": {
+      "provider": "deepseek",
+      "model": "deepseek-reasoner",
+      "base_url": "https://api.deepseek.com/v1",
+      "api_key_env": "DEEPSEEK_API_KEY"
+    },
+
+    "qwen-plus": {
+      "provider": "dashscope",
+      "model": "qwen-plus",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "notes": "Aliyun DashScope OpenAI-compatible mode. Alternative models: qwen-max, qwen-turbo, qwen2.5-72b-instruct."
+    },
+
+    "qwen-max": {
+      "provider": "dashscope",
+      "model": "qwen-max",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY"
+    },
+
+    "qwen3-plus": {
+      "provider": "dashscope",
+      "model": "qwen-plus-latest",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "notes": "Alibaba DashScope Qwen3-based 'plus' tier (always routes to the current latest). OpenAI-compatible endpoint. Export DASHSCOPE_API_KEY."
+    },
+
+    "qwen-local-7b": {
+      "provider": "local",
+      "model": "Qwen2.5-7B-Instruct",
+      "base_url": "http://localhost:8000/v1",
+      "api_key_env": "QWEN_LOCAL_API_KEY",
+      "api_key_default": "EMPTY",
+      "notes": "Launch via vLLM/LMDeploy/Ollama OpenAI-compatible server. Future: attach KB/LoRA via 'extensions' below.",
+      "extensions": {
+        "knowledge_base": null,
+        "lora_adapter": null,
+        "system_prompt_override": null
+      }
+    },
+
+    "qwen-local-14b": {
+      "provider": "local",
+      "model": "Qwen2.5-14B-Instruct",
+      "base_url": "http://localhost:8000/v1",
+      "api_key_env": "QWEN_LOCAL_API_KEY",
+      "api_key_default": "EMPTY",
+      "extensions": {
+        "knowledge_base": null,
+        "lora_adapter": null
+      }
+    },
+
+    "qwen-local-ollama": {
+      "provider": "local",
+      "model": "qwen2.5:7b-instruct",
+      "base_url": "http://localhost:11434/v1",
+      "api_key_env": "OLLAMA_API_KEY",
+      "api_key_default": "ollama",
+      "notes": "Default Ollama-hosted profile; replace model tag as needed."
+    },
+
+    "minimax-m2": {
+      "provider": "minimax",
+      "format": "anthropic",
+      "model": "MiniMax M2.7",
+      "base_url": "https://api.minimaxi.com/anthropic",
+      "api_key_env": "MINIMAX_API_KEY",
+      "notes": "MiniMax serves its model via the Anthropic Messages API format at /anthropic. Requires the anthropic Python SDK. Export MINIMAX_API_KEY before use."
+    },
+
+    "gpt-5.4": {
+      "provider": "opencode-zen",
+      "format": "openai",
+      "model": "gpt-5.4",
+      "base_url": "https://opencode.ai/zen/v1",
+      "api_key_env": "OPENCODE_ZEN_KEY",
+      "notes": "OpenAI GPT-5.4 via OpenCode Zen gateway. OpenAI-compatible endpoint; bare model id 'gpt-5.4' (prefixed 'opencode/gpt-5.4' is rejected). Prompt caching supported via cached_tokens field."
+    },
+
+    "claude-sonnet-4-6": {
+      "provider": "opencode-zen",
+      "format": "openai",
+      "model": "claude-sonnet-4-6",
+      "base_url": "https://opencode.ai/zen/v1",
+      "api_key_env": "OPENCODE_ZEN_KEY",
+      "notes": "Anthropic Claude Sonnet 4.6 via OpenCode Zen. Bare id 'claude-sonnet-4-6' (hyphenated, not dotted). 4.7 not yet on Zen as of 2026-04-23. finish_reason=tool_calls returned properly; schema-compliant."
+    },
+
+    "claude-opus-4-7": {
+      "provider": "opencode-zen",
+      "format": "openai",
+      "model": "claude-opus-4-7",
+      "base_url": "https://opencode.ai/zen/v1",
+      "api_key_env": "OPENCODE_ZEN_KEY",
+      "notes": "Anthropic Claude Opus 4.7 via OpenCode Zen. Flagship Anthropic model; listed $5/$25 per M tokens on Zen (cheaper than direct). Use for red-team headline comparisons where flagship-vs-flagship framing matters."
+    },
+
+    "qwen3.6-local": {
+      "provider": "ollama-local",
+      "format": "openai",
+      "model": "qwen3.6:latest",
+      "base_url": "http://localhost:11434/v1",
+      "api_key_env": "OLLAMA_LOCAL_API_KEY",
+      "api_key_default": "ollama",
+      "notes": "Alibaba Qwen3.6 via local Ollama docker. OpenAI-compat endpoint. 4090 GPU. Replaces Qwen3-Plus (dashscope) in C3 row for reviewer-staleness defense. Needs system prompt that anchors proper tool_calls format; tool_choice=auto works with long system prompts."
+    },
+
+    "qwen3.5-uncensored-local": {
+      "provider": "ollama-local",
+      "format": "openai",
+      "model": "jaahas/qwen3.5-uncensored:27b",
+      "base_url": "http://localhost:11434/v1",
+      "api_key_env": "OLLAMA_LOCAL_API_KEY",
+      "api_key_default": "ollama",
+      "notes": "Qwen3.5 27B with safety/alignment layer abliterated (jaahas community build). §5 B1 causal test: measures whether RLHF stripping drives cluster membership from mild to lethal, controlling for capability (same family + near-same scale as Qwen3.6)."
+    }
+  }
+}

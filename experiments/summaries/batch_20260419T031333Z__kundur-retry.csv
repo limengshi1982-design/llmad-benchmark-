@@ -1,0 +1,4 @@
+run_id,profile,model,case,seed,temperature,horizon_s,stopped_reason,failed,failure_reason,t_fail,omega_deviation_max,v_min,delta_drift_max,delta_spread_max,n_tool_calls,prompt_tokens,completion_tokens,wall_time_s,error
+20260419T031333Z__minimax-m2__kundur__s0,minimax-m2,MiniMax M2.7,kundur,0,0.0,10.0,max_steps,True,voltage,1.0001,0.03285457054966612,4.196654334408432e-12,3.504915086120307,3.1677040832047805,15,6101,2652,75.64167410000027,
+20260419T031451Z__minimax-m2__kundur__s1,minimax-m2,MiniMax M2.7,kundur,1,0.0,10.0,no_tool_call,True,voltage,0.10010000000000001,0.032854570007862405,4.1966793029809536e-12,3.5049147421257976,3.1677041040449203,8,4007,1944,57.20808709999983,
+20260419T031549Z__minimax-m2__kundur__s2,minimax-m2,MiniMax M2.7,kundur,2,0.0,10.0,no_tool_call,True,voltage,0.5001,0.032854570627144586,4.197051027572081e-12,3.5049149496865963,3.167704248952699,8,3950,1773,47.54480400000011,
